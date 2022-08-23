@@ -2,7 +2,7 @@
 
 /**
  * swap - Srwapping machine
- * @array - the array in which we may need to swap
+ * @array: the array in which we may need to swap
  * @x: to be swapped with y
  * @y: to be swapped with x
  */
