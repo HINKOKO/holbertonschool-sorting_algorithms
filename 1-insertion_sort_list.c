@@ -1,15 +1,16 @@
 #include "sort.h"
 
 /**
- * @brief
- *
+ * insertion_sort_list - sorts a doubly linked list using
+ * using insertion sort algorithm
+ * @list: double pointer to head of linked list
  */
 
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *swap, *after;
 
-	if (*list == NULL)
+	if (*list == NULL || list == NULL)
 		return;
 
 	swap = (*list)->next;
