@@ -10,7 +10,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *swap, *after;
 
-	if (*list == NULL || list == NULL)
+	if (list == NULL || (*list) == NULL)
 		return;
 
 	swap = (*list)->next;
