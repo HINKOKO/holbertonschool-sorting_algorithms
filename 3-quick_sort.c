@@ -24,10 +24,12 @@ size_t Lomuto(int *array, int low, int high, size_t size)
 		{
 			i++; /* increment index of smaller element */
 			if (i != idx)
+			{
 				swap = array[i];
-			array[i] = array[idx];
-			array[idx] = swap;
-			print_array(array, size);
+				array[i] = array[idx];
+				array[idx] = swap;
+				print_array(array, size);
+			}
 		}
 	}
 	if (array[high] < array[i + 1])
@@ -40,19 +42,29 @@ size_t Lomuto(int *array, int low, int high, size_t size)
 	}
 	return (i + 1); /* returns the next sorting element location */
 }
+/**
+ * quicksort - helper function for quick_sort prototype
+ * @array: pointer to first element of array
+ * @start: left-most position of array
+ * @end: right-most position of array
+ * @size: size of array
+ */
 void quicksort(int *array, int start, int end, size_t size)
 {
 	size_t pivot;
-
 	if (start < end)
-
 	{
 		pivot = Lomuto(array, start, end, size);
 		quicksort(array, start, pivot - 1, size);
 		quicksort(array, pivot + 1, end, size);
 	}
 }
-
+/**
+ * quick_sort - sorts an array of integers in ascending order using
+ * quicksort algorithm
+ * @array: pointer to first element of array
+ * @size: size of array, number of elements
+ */
 void quick_sort(int *array, size_t size)
 {
 	if (!array)
