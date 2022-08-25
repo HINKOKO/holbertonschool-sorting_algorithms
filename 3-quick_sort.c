@@ -18,12 +18,13 @@ size_t Lomuto(int *array, int low, int high, size_t size)
 				  * right position of pivot found so far */
 	pivot = array[high];
 
-	for (idx = low; idx <= high - 1; ++idx)
+	for (idx = low; idx < high; ++idx)
 	{
 		if (array[idx] < pivot)
 		{
-			i++;
-			swap = array[i];
+			i++; /* increment index of smaller element */
+			if (i != idx)
+				swap = array[i];
 			array[i] = array[idx];
 			array[idx] = swap;
 			print_array(array, size);
