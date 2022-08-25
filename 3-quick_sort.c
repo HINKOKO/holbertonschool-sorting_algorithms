@@ -14,8 +14,7 @@ size_t Lomuto(int *array, int low, int high, size_t size)
 {
 	int i, idx, pivot, swap;
 
-	i = low - 1; /* index of smaller element and indicates the
-				  * right position of pivot found so far */
+	i = low - 1;
 	pivot = array[high];
 
 	for (idx = low; idx < high; ++idx)
@@ -42,6 +41,7 @@ size_t Lomuto(int *array, int low, int high, size_t size)
 	}
 	return (i + 1); /* returns the next sorting element location */
 }
+
 /**
  * quicksort - helper function for quick_sort prototype
  * @array: pointer to first element of array
@@ -49,9 +49,11 @@ size_t Lomuto(int *array, int low, int high, size_t size)
  * @end: right-most position of array
  * @size: size of array
  */
+
 void quicksort(int *array, int start, int end, size_t size)
 {
 	size_t pivot;
+
 	if (start < end)
 	{
 		pivot = Lomuto(array, start, end, size);
@@ -59,12 +61,14 @@ void quicksort(int *array, int start, int end, size_t size)
 		quicksort(array, pivot + 1, end, size);
 	}
 }
+
 /**
  * quick_sort - sorts an array of integers in ascending order using
  * quicksort algorithm
  * @array: pointer to first element of array
  * @size: size of array, number of elements
  */
+
 void quick_sort(int *array, size_t size)
 {
 	if (!array)
