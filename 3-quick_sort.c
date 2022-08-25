@@ -1,15 +1,20 @@
 #include "sort.h"
 
 /**
- * @brief
- *
+ * Lomuto - lomuto partition scheme, choose a pivot
+ * right here the last element of array
+ * @array: pointer to first element of array
+ * @low: left-most element of array
+ * @high: right-most element of array
+ * @size: number of elements in array
+ * Return: next sorting element location
  */
 
 size_t Lomuto(int *array, int low, int high, size_t size)
 {
 	int i, idx, pivot, swap;
 
-	i = low - 1;
+	i = low;
 	pivot = array[high];
 
 	for (idx = low; idx < high; ++idx)
