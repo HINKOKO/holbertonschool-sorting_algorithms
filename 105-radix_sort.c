@@ -1,28 +1,37 @@
 #include "sort.h"
 
 /**
- * @brief Get the max object
- *
- * @param a
- * @param n
- * @return int
+ * get_max - determine max value of array
+ * @array: array in which to find max value
+ * @size: number of elements of array
+ * Return: max value found
  */
 
 int get_max(int *array, size_t size)
 {
 	size_t i;
 	int max;
+
 	max = array[0];
 	for (i = 1; i < size; i++)
 		if (array[i] > max)
 			max = array[i];
 	return (max);
 }
+
+/**
+ * radix_sort - radix sort is incredible
+ * @array: to array to be radixed
+ * @size: number of elements of array
+ */
+
 void radix_sort(int *array, size_t size)
 {
-	int bucket[10][10], bucket_cnt[10];
+	int j, bucket[10][10], bucket_cnt[10];
 	size_t i, k, r, NOP = 0, divisor = 1, lar, pass;
-	int j;
+
+	if (!array || size < 2)
+		return;
 	lar = get_max(array, size);
 	while (lar > 0)
 	{
