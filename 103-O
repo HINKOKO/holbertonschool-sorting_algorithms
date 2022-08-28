@@ -1,15 +1,3 @@
-/*
- * same for three cases because merge sort divides
- * the array into two halves and takes linear times
- * to merge two halves
- */
-
 O(nlog(n))
 O(nlog(n))
 O(nlog(n))
-
-/*
- * same for three cases because merge sort divides
- * the array into two halves and takes linear times
- * to merge two halves
- */
