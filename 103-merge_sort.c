@@ -1,6 +1,11 @@
 #include "sort.h"
 
-/**
+/*
+ * NOTE on COMPLEXITY:
+ * same for three cases because merge sort divides
+ * the array into two halves and takes linear times
+ * to merge two halves
+ *
  * merge_top_down - function that performs a sort and merge
  * on sub_array
  * @array: the array to sort and merge
@@ -10,7 +15,8 @@
  * @end: index of last element
  */
 
-void merge_top_down(int *array, int *array_2, size_t start, size_t mid, size_t end)
+void merge_top_down(int *array, int *array_2, size_t start,
+					size_t mid, size_t end)
 {
 	size_t k = 0;
 	size_t i, j;
