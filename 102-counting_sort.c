@@ -11,7 +11,8 @@ void counting_sort(int *array, size_t size)
 {
 	int index = 0;
 	int max = -1;
-	size_t output[size];
+	size_t *output;
+	int *count = NULL;
 
 	/* Find the largest element in the array */
 	for (index = 0; index < (int)size; index++)
@@ -21,7 +22,7 @@ void counting_sort(int *array, size_t size)
 	}
 	max = max + 1;
 	/* Giving memory to count and Initializing count array with all zeros */
-	int *count = calloc(sizeof(int), max);
+	count = calloc(sizeof(int), max);
 	/* Protecting count if it doesn't exist return */
 	if (!count)
 		return;
@@ -36,8 +37,11 @@ void counting_sort(int *array, size_t size)
 		count[index] += count[index - 1];
 	}
 	print_array(count, max);
+	output = calloc(size, sizeof(int));
+	if (!output)
+		return;
 	/* Place the elements in output array */
-	for (int index = size - 1; index >= 0; index--)
+	for (index = size - 1; index >= 0; index--)
 	{
 		output[count[array[index]] - 1] = array[index];
 		count[array[index]]--;
@@ -47,4 +51,5 @@ void counting_sort(int *array, size_t size)
 	{
 		array[index] = output[index];
 	}
+	free(output);
 }
